@@ -1,0 +1,86 @@
+
+<div *ngIf="travel">
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+              <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-md-12">
+                        
+                    </div>
+                  </div>
+              </div>
+
+              <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-md-12">
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                              <h3 class="panel-title"><b>{{ travel.destination | uppercase }} </b> Details</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+
+                                    <div class="form-group col-md-3">
+                                        <label for="id">ID</label>
+                                        <input type="text" disabled class="form-control" id="id" placeholder="ID" value="{{ travel.id }}">
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        <label for="origin">ORIGIN</label>
+                                        <input type="text"  [(ngModel)]="travel.origin" pattern="[a-zA-Z ]*" value="{{ travel.origin }}" class="form-control" id="origin" placeholder="ORIGIN" >
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        <label for="destination">DESTINATION</label>
+                                        <input type="text" [(ngModel)]="travel.destination" pattern="[a-zA-Z ]*" class="form-control" id="destination" placeholder="DESTINATION" value="{{ travel.destination }}">
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                            <label for="origin">DATETIME</label>
+                                            <input [(ngModel)]="travel.date" class="form-control" ng2-datetime-picker date-format="DD/MM/YYYY HH:mm" parse-format="YYYY-MM-DD HH:mm:ss" />
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        <label for="aircraft">AIRCRAFT</label>
+                                        <select  [(ngModel)]="travel.aircraft" class="form-control" id="aircraft" placeholder="AIRCRAFT">
+                                          <option *ngFor="let aircraft of aircrafts" > {{aircraft.name}}</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        <label for="user">USER</label>
+                                        <select  [(ngModel)]="travel.userName" class="form-control" id="userName" placeholder="USERNAME">
+                                            <option *ngFor="let user of users" > {{user.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                            <div class="row">
+                                    <div class="form-group col-md-3">
+                                        <button class="form-control  pull-right btn btn-default" routerLink="/dashboard">Cancel</button>
+                                    </div>    
+                                    <div class="form-group col-md-3">
+                                        <button class="form-control btn btn-primary" (click)="goBack()">Save</button>
+                                    </div> 
+                            </div>
+                                
+                        
+                        
+                    </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+    </div>    
+</div>
+
+<script type="javascript">
+        $(function () {                
+        $('#datetimepicker2').datetimepicker();
+        });
+</script>

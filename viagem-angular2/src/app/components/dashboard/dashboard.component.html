@@ -1,0 +1,14 @@
+<h3>Travel control</h3>
+
+<div class="col-md-12">
+  <div class="grid grid-pad">
+    <a *ngFor="let travel of travels" class="col-1-4"
+        routerLink="/detail/{{travel.id}}">
+      <div class="module travel">
+        <h4>{{travel.destination}}</h4>
+      </div>
+    </a>
+  </div>
+</div>
+
+
