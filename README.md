@@ -1,4 +1,4 @@
-# travel-angular2
+# Travel (Angular 2)
 
 
 Teste Front End com Angular2
